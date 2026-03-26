@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="description" content="Online Tourist Planner - Explore and Book Travel Packages" />
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <link rel="icon" href="%PUBLIC_URL%/icon-512.png" />
+
+  <!-- Apple PWA Meta Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Tourist Planner" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/icon-512.png" />
+
+  <!-- Microsoft PWA -->
+  <meta name="msapplication-TileColor" content="#0f172a" />
+  <meta name="msapplication-TileImage" content="%PUBLIC_URL%/icon-512.png" />
+
+  <title>Online Tourist Planner</title>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+
+  <script>
+    // Register Service Worker for PWA
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(reg => console.log('[PWA] Service Worker registered:', reg.scope))
+          .catch(err => console.log('[PWA] SW registration failed:', err));
+      });
+    }
+  </script>
+</body>
+
+</html>
